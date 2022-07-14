@@ -1,4 +1,5 @@
 import { initializeApp } from "firebase/app";
+import { getFirestore, getDoc, setDoc, doc } from "firebase/firestore";
 import {
   getAuth,
   signInWithRedirect,
@@ -21,4 +22,26 @@ const provider = new GoogleAuthProvider();
 provider.setCustomParameters({ prompt: "select_account" });
 
 export const auth = getAuth();
-export const signInWithGooglePopup = () => signInWithPopup(auth,provider);
+export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
+export const db = getFirestore();
+
+export const createUserDocumentFromAuth =  async (userAuth) => {
+    const userDocRef = doc(db,"/users",userAuth.user.uid);
+    const userSnapshot = await getDoc(userDocRef);
+
+    if(!userSnapshot.exists()) {
+        const { displayName,email } = userAuth.user;
+        const createdAt = new Date();
+
+        try {
+            await setDoc(userDocRef, {
+                displayName,email,createdAt
+            })
+        } catch(error) {
+            console.log("Error Adding User in Database",error.message);
+        }
+    }
+
+    return userSnapshot;
+
+}
