@@ -5,6 +5,7 @@ import {
   signInWithRedirect,
   signInWithPopup,
   GoogleAuthProvider,
+  createUserWithEmailAndPassword
 } from "firebase/auth";
 
 const firebaseConfig = {
@@ -25,7 +26,14 @@ export const auth = getAuth();
 export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
 export const db = getFirestore();
 
-export const createUserDocumentFromAuth =  async (userAuth) => {
+export const createAuthUserWithEmailAndPassword = async (email,password,displayName) => {
+    if(!email || !password) return;
+    const user = await createUserWithEmailAndPassword(auth,email,password);
+    createUserDocumentFromAuth(user,{displayName});
+}
+
+export const createUserDocumentFromAuth =  async (userAuth,additionalData = {}) => {
+    if(!userAuth) return;
     const userDocRef = doc(db,"/users",userAuth.user.uid);
     const userSnapshot = await getDoc(userDocRef);
 
@@ -35,7 +43,7 @@ export const createUserDocumentFromAuth =  async (userAuth) => {
 
         try {
             await setDoc(userDocRef, {
-                displayName,email,createdAt
+                displayName,email,createdAt,...additionalData
             })
         } catch(error) {
             console.log("Error Adding User in Database",error.message);
@@ -43,5 +51,4 @@ export const createUserDocumentFromAuth =  async (userAuth) => {
     }
 
     return userSnapshot;
-
 }
