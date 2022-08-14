@@ -14,7 +14,7 @@ const CategoriesPreview = () => {
                 Object.keys(categoriesMap).map(title => {
                     const products = categoriesMap[title];
                     return (
-                        <CategoryPreview key={title} title={title.toUpperCase()} products={products} />
+                        <CategoryPreview key={title} title={title} products={products} />
                     )
                 })
             }
