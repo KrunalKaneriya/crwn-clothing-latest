@@ -3,9 +3,8 @@ import {Body,BackgroundImage, DirectoryItemContainer} from "./directory-item.sty
 const DirectoryItem = ({ category }) => {
   const { imageUrl, title } = category;
   return (
-    <DirectoryItemContainer>
+    <DirectoryItemContainer to={`/shop/${title}`}>
       <BackgroundImage
-        className='background-image'
         imageUrl={imageUrl}
       />
       <Body>

@@ -19,9 +19,9 @@ const Navigation = () => {
   return (
     <Fragment>
       <NavigationContainer>
-        <Link className='logo-container' to='/'>
+        <LogoContainer to='/'>
           <CrwnLogo className='logo' />
-        </Link>
+        </LogoContainer>
         <NavLinksContainer>
           <NavLink to='/shop'>
             SHOP
