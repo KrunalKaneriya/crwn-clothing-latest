@@ -1,3 +1,5 @@
+//This component is wrapper of category preview component which displays 4 product of every category
+
 import {Body,BackgroundImage, DirectoryItemContainer} from "./directory-item.styles";
 
 const DirectoryItem = ({ category }) => {

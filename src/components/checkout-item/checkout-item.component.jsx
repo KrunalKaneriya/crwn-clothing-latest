@@ -1,3 +1,5 @@
+//This component is the Checkout component which is displayed by clicking on checkout component and it displays the items which we added in our cart
+
 import { useContext } from 'react';
 
 import { CartContext } from '../../contexts/cart.context';

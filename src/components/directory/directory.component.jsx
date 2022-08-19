@@ -1,3 +1,5 @@
+//This is the main wrapper component of all the other component and this component can be said as a parent component
+
 import DirectoryItem from "../directory-item/directory-item.component";
 import { DirectoryContainer } from "./directory.styles";
 

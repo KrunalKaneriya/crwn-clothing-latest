@@ -1,3 +1,6 @@
+//This Component Contains the Dropdown Div which can be toggled on or off via clicking
+//on cartIcon component
+
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CartContext } from '../../contexts/cart.context';

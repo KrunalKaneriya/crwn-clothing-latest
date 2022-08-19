@@ -1,3 +1,5 @@
+//This component can be said as the home route becuase this component displays every 4 products of every categories in ProductCard component in home route
+
 import { CategoryPreviewDetails, CategoryPreviewContainer, CategoryPreviewTitle } from "./category-preview.styles";
 
 import ProductCard from "../product-card/product-card.component";

@@ -1,3 +1,5 @@
+//This component displays the single product as a card
+
 import { useContext } from 'react';
 
 import { CartContext } from '../../contexts/cart.context';

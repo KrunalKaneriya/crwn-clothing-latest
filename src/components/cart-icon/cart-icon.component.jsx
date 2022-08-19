@@ -1,3 +1,5 @@
+//This component displays cart icon on the right corner of the page and it also displays number of items we have in our cart
+
 import { useContext } from 'react';
 
 import { CartContext } from '../../contexts/cart.context';

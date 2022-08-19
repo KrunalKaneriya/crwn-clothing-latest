@@ -1,3 +1,4 @@
+//This component is used as a form component and is used mainly for sign in and sign up purposes
 import {FormInputLabel,Input,Group} from "./form-input.styles";
 
 const FormInput = ({ label, ...otherProps }) => {
