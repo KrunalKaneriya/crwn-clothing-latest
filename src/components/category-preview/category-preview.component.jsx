@@ -1,23 +1,26 @@
-//This component can be said as the home route becuase this component displays every 4 products of every categories in ProductCard component in home route
+import ProductCard from '../product-card/product-card.component';
 
-import { CategoryPreviewDetails, CategoryPreviewContainer, CategoryPreviewTitle } from "./category-preview.styles";
+import {
+  CategoryPreviewContainer,
+  Title,
+  Preview,
+} from './category-preview.styles';
 
-import ProductCard from "../product-card/product-card.component";
 const CategoryPreview = ({ title, products }) => {
-    return (
-        <CategoryPreviewContainer>
-            <h2>
-                <CategoryPreviewTitle to={title}>{title.toUpperCase()}</CategoryPreviewTitle>
-            </h2>
-
-            <CategoryPreviewDetails>
-                {
-                    products.filter((_, idx) => idx < 4)
-                        .map((product) => <ProductCard key={product.id} product={product} />)
-                }
-            </CategoryPreviewDetails>
-        </CategoryPreviewContainer>
-    )
-}
+  return (
+    <CategoryPreviewContainer>
+      <h2>
+        <Title to={title}>{title.toUpperCase()}</Title>
+      </h2>
+      <Preview>
+        {products
+          .filter((_, idx) => idx < 4)
+          .map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+      </Preview>
+    </CategoryPreviewContainer>
+  );
+};
 
 export default CategoryPreview;

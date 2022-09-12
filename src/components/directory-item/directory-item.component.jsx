@@ -1,14 +1,20 @@
-//This component is wrapper of category preview component which displays 4 product of every category
+import { useNavigate } from 'react-router-dom';
 
-import {Body,BackgroundImage, DirectoryItemContainer} from "./directory-item.styles";
+import {
+  BackgroundImage,
+  Body,
+  DirectoryItemContainer,
+} from './directory-item.styles';
 
 const DirectoryItem = ({ category }) => {
-  const { imageUrl, title } = category;
+  const { imageUrl, title, route } = category;
+  const navigate = useNavigate();
+
+  const onNavigateHandler = () => navigate(route);
+
   return (
-    <DirectoryItemContainer to={`/shop/${title}`}>
-      <BackgroundImage
-        imageUrl={imageUrl}
-      />
+    <DirectoryItemContainer onClick={onNavigateHandler}>
+      <BackgroundImage imageUrl={imageUrl} />
       <Body>
         <h2>{title}</h2>
         <p>Shop Now</p>

@@ -1,5 +1,3 @@
-//this component is used for signing up as a user via google or manually
-
 import { useState } from 'react';
 
 import FormInput from '../form-input/form-input.component';
@@ -10,7 +8,7 @@ import {
   createUserDocumentFromAuth,
 } from '../../utils/firebase/firebase.utils';
 
-import { SignUpContainer } from "./sign-up-form.styles";
+import { SignUpContainer } from './sign-up-form.styles';
 
 const defaultFormFields = {
   displayName: '',

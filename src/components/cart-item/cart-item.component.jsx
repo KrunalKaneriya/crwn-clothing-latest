@@ -1,18 +1,16 @@
-//This component consist of a single CartItem which is displayed inside cardDropdown Component and it includes item name image quantity and price
-
-import {CartItemContainer,CartItemDetails,CartItemImage,CartItemName} from './cart-item.styles';
+import { CartItemContainer, ItemDetails } from './cart-item.styles';
 
 const CartItem = ({ cartItem }) => {
   const { name, imageUrl, price, quantity } = cartItem;
   return (
     <CartItemContainer>
-      <CartItemImage src={imageUrl} alt={`${name}`} />
-      <CartItemDetails>
-        <CartItemName>{name}</CartItemName>
+      <img src={imageUrl} alt={`${name}`} />
+      <ItemDetails>
+        <span>{name}</span>
         <span>
           {quantity} x ${price}
         </span>
-      </CartItemDetails>
+      </ItemDetails>
     </CartItemContainer>
   );
 };
